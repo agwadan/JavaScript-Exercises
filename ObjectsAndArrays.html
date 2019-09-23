@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objects And Arrays</title>
+</head>
+<body>
+
+	<h1>Objects And Arrays</h1>
+	<br>
+	<h4>Press F12 to access developer tools</h4>
+	<script type="text/javascript">
+
+		//CONSTRUCTOR FUNCTIONS (Used to instantiate new objects)
+
+		
+		//Example 1
+
+		function Car (id) {
+			this.carId = id;
+
+		}
+
+		let car = new Car(123);
+		console.log(car.carId);
+
+
+		//Example 2
+
+		//Note that the function name "Car", begins with an uppercase letter... This is a convention for constructor functions
+
+		//So car becomes an object.
+
+		function Car (id) {
+			this.carId = id; /*property for the object Car*/
+
+			/*Below, the property "start" is a function aka a method since it is used in an object*/
+			this.start = function() {
+				console.log('start: ' + this.carId);
+			};
+		}
+		
+		let vehicle = new Car (231);
+		vehicle.start();
+
+
+
+		//EXAMPLE 3 
+
+		function Rock (subgenre, origin) {
+			this.songGenre = subgenre;
+			this.genreOrigin = origin;
+			this.append = function (){
+				console.log(this.songGenre + ' from ' + this.genreOrigin );
+			};
+		}
+
+		let metal = new Rock ('Metal','Ilinois');
+		metal.append();
+
+
+		/*****************************************************************************/
+
+		//PROTOTYPES
+
+		//Example 1
+
+		function Bass(stringNumber, genre){
+			this.bassStrings = stringNumber;
+			this.bassGenre = genre;
+		}
+
+		Bass.prototype.join = function(){
+			console.log(this.bassStrings + " string Bass is commonly used for " + this.bassGenre + " playing.");
+		}
+
+		let fender = new Bass(4, "Jazz");
+		fender.join();
+
+
+
+		/***************************************************************************/
+
+
+		//JSON (JavaScript Object Notation)
+
+		//Used to send transmit JavaScript objects to probably some api on the web
+
+		//Example 1 (Converting an object to JSON)
+
+
+		let moped = {
+			model: 'mahindra',
+			groundClearance: 12
+		}
+
+		console.log(JSON.stringify(moped));
+
+		
+
+		//Example 2 (Converting an array to JSON)
+
+		let truckIds = [
+			{truckId: 1},
+			{truckId: 2},
+			{truckId: 3}
+		]
+
+		console.log(JSON.stringify(truckIds));
+
+
+		//Example 3 (Parsing a received JSON text)
+
+		let incomingJson = `
+		[
+			{"bikeId":1},
+			{"bikeId":2},
+			{"bikeId":3}
+		]
+		`
+		console.log(JSON.parse(incomingJson));
+
+
+		/****************************************************************/
+
+		//ARRAY ITERATION
+		//Using inbuilt methods to handle arrays other than the common structural methods like for loops
+
+		//Example 1
+
+		let planeIds = [
+			{planeId: 1, manufacturer: "AirBus"},
+			{planeId: 2, manufacturer: "Boeing"},
+			{planeId: 3, manufacturer: "Bombardier"}
+		];
+
+		planeIds.forEach(plane => {console.log(plane)});
+		planeIds.forEach((plane, index) => {console.log(plane, index)})
+
+		
+
+		//Example 2
+
+		//ARRAY FILTERING
+		//Can be used to filter an array and create a new array depending on what the filter is
+
+		let phoneIds = [
+			{phoneId: 1, make: "Samsung"},
+			{phoneId: 2, make: "Huawei"},
+			{phoneId: 3, make: "Samsung"},
+			{phoneId: 4, make: "Nexus"}
+		]
+
+		let koreanPhones = phoneIds.filter(
+			phone => phone.make === "Samsung"
+		);
+
+		console.log(koreanPhones);
+
+
+
+		//Example 3
+
+		//ARRAY TESTING (Using the every function, to test validity)
+
+		let pcIds = [
+			{pcId: 1, make: "Samsung"},
+			{pcId: 2, make: "HP"},
+			{pcId: 3, make: "Samsung"},
+			{pcId: 4, make: "Sony"}
+		]
+
+		let pcNumber = pcIds.every(
+			pc => pc.pcId > 0
+		);
+
+		console.log(pcNumber);
+
+
+		//Example 4
+		//FIND
+		//Locating fist match
+
+		bandIds = [
+			{bandId: 12, name: "Switchfoot"},
+			{bandId: 23, name: "For King & Country"},
+			{bandId: 344, name: "Red"},
+			{bandId: 655, name: "TFK"}
+		]
+
+		let best = bandIds.find(
+			band => band.bandId < 50
+		)
+
+		console.log(best);
+		
+
+	</script>
+</body>
+</html>
