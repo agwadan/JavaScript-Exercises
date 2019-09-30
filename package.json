@@ -1,0 +1,19 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "Learning JavaScript fundamentals",
+  "main": "LearnJS.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agwadan/JavaScript-Exercises.git"
+  },
+  "author": "Agwa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agwadan/JavaScript-Exercises/issues"
+  },
+  "homepage": "https://github.com/agwadan/JavaScript-Exercises#readme"
+}
