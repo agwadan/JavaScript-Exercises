@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Programming the DOM and BOM</title>
+    </head>
+
+    <body>
+
+        <h1>PROGRAMMING THE BOM AND DOM</h1>
+
+        <P>
+            <ul>
+                <li>BOM stands for "<i>Browser Object Model</i>". This allows us access functionality in the browser.</li>
+                <li>DOM stands for "<i>Document Object Model</i>". This used to change the actual web page.</li>
+            </ul>
+        </P>
+
+        
+    
+        <p>You'll notice that in the console, there's text that is printed over and over again. Hit the button below to stop it.</p>
+        <button onclick="clearFunction()">Clear Interval</button>
+
+        <p id="first" class="p1">First Paragraph</p>
+        <p name="name1" class="p1">Second Paragraph</p>
+        <p class="p3">Third Paragraph</p>
+
+        <footer>
+                <marquee><h4>Press F12 to access developer tools</h4></marquee>
+            </footer>
+        <script type="text/javascript">
+
+            //THE WINDOW OBJECT
+            //Example 1
+            year = 1996;
+            console.log(window.year)
+            /************************************************************/
+            
+            
+            //TIMERS
+            //Can be set to fire up events 
+            //Example 1
+
+            let intervalId = setInterval(function(){
+                console.log('Agwa is awesome');
+            },2000);
+
+            //Example 2 (With clearing the interval)
+
+            let intervalId1 = setInterval(function(){
+                console.log('Agwa Daniel is Even more awesome');
+            },1000);
+
+            const clearFunction = () =>{
+                clearInterval(intervalId1);
+            }
+
+            /************************************************************/
+
+            //LOCATION OBJECT (Part of the BOM)
+            //Example 1
+
+            console.log(location.href);
+            console.log(document.location.href);
+
+            //Note that the above two statements give the same value
+
+            /***********************************************************/
+
+            //DOCUMENT OBJECT (Used to program the DOM)
+            //Selecting DOM elements
+            //Example 1
+
+            /* let el = document.getElementById ('first');
+            console.log(el)*/
+
+            let els = document.getElementsByClassName('p1');
+            console.log(els[1]);
+
+            let elss = document.getElementsByTagName('p');
+            console.log(elss); 
+
+            /***********************************************************/
+
+            //MODIFYING DOM ELEMENTS
+            //Example1
+
+            let el = document.getElementById ('first');
+            el.textContent = 'New Content...'
+            el.style.color = 'blue';
+            console.log(el)
+
+            
+            
+
+
+
+        </script>
+    </body>
+</html>
