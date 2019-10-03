@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>Promises And Error Handling</title>
+</head>
+<boby>
+    <h1>Promises And Error Handling</h1>
+    <br>
+    <marquee>
+        <h4>Press F12 to access developer tools</h4>
+    </marquee>
+
+    <script type="text/javascript">
+        //USING TRY AND CATCH
+        //EXAMPLE 1
+
+        try {
+            let car = newCar //Notice that "newCar is not defined"
+            console.log(car)
+        }
+        catch (error) {
+            console.log('error: ', error);
+
+        }
+
+        console.log('continuing>>>');
+
+        /****************************************************************/
+        //FINALLY BLOCK
+        //Example 1
+
+        try{
+            let phone = newPhone;
+        }
+        catch(error){
+            console.log('error: ', error);
+
+        }
+        finally{
+            console.log('This always executes despite the error');
+        }
+
+        /***************************************************************/
+
+        //DEVELOPER DEFINED ERRORS
+        //EXAMPLE 1
+
+        try{
+            //The code 
+            throw new Error('Custom error by the developer');
+        }
+
+        catch(error){
+            console.log('error: ', error);
+        }
+        finally{
+            console.log('This ofcourse always executes');
+        }
+
+        /*****************************************************************/
+
+        //PROMISES
+        //Used to temporarily hold values in asynchronous operations like http calls
+        //Example 1
+
+        /* let promise = new Promise(
+            (resolve, reject) => {
+                setTimeout(resolve, 100, 'someValue');
+            }
+        )
+        console.log(promise); */
+
+        //Example2
+        let promise = new Promise(
+            (resolve, reject) => {
+                setTimeout(reject, 100, 'someValue');
+            }
+        )
+        console.log(promise);
+
+        //SETTLING A PROMISE
+        //Example 3
+        
+        let promise1 = new Promise(
+            (resolve, reject) => {
+                setTimeout(resolve, 100, 'someValue');
+            }
+        )
+
+        promise.then(
+            (value) => console.log('fulfilled: ' + value),
+            (error) => console.log('rejected: ', + error)
+        );
+
+    </script>
+</boby>
+
+</html>
