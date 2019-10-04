@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/agwadan/JavaScript-Exercises/issues"
   },
-  "homepage": "https://github.com/agwadan/JavaScript-Exercises#readme"
+  "homepage": "https://github.com/agwadan/JavaScript-Exercises#readme",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }
