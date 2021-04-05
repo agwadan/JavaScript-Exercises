@@ -1,21 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
 
     Commas in numbers
     <script type="text/javascript">
-        
+
         numberWithCommas = (n) => {
-           return n.toLocaleString();
+            return n.toLocaleString();
         }
-        console.log(numberWithCommas(200000))
+        console.log(numberWithCommas(200000));
+        console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+
+        /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+        /* ARRAY LOOPS */
+        phones = [
+            {
+                name: 'Pixel 4a',
+                price: 350,
+                multiCamera: false
+            },
+            {
+                name: 'Galaxy s10e',
+                price: 316,
+                multiCamera: true
+            },
+            {
+                name: 'Moto G',
+                price: 280,
+                multiCamera: true
+            }
+        ]
+
+        phones.forEach(phone => {
+            console.log(phone.name);
+        });
+        console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5');
+
+        const smartPhones = phones.map((phone) => {
+            return phone.price;
+        })
+        console.log(smartPhones);
+        console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5');
+
+        const multiCamPhone = phones.filter((phone) => {
+            return phone.multiCamera === true;
+        }).map((phone) => {
+            return phone.name
+        })
+        console.log(multiCamPhone);
     </script>
 </body>
-</html>
 
+</html>
