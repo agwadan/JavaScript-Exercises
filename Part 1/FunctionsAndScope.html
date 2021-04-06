@@ -1,183 +1,193 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Functions And Scope</title>
-	</head>
-	<body>
 
-			<h1>Function And Scope</h1>
-			<br>
-			<h4>Press F12 to access developer tools</h4>
-			<script type="text/javascript">
-						
+<head>
+	<title>Functions And Scope</title>
+</head>
 
-				//example 1
+<body>
 
-				const startCar = (carId) => {
-					let message = 'Starting...';
-					console.log(message);
-				}
-				startCar();
+	<h1>Function And Scope</h1>
+	<br>
+	<h4>Press F12 to access developer tools</h4>
+	<script type="text/javascript">
 
 
+		//example 1
 
-				//example 2
-
-				const addProduct = (productId) => {
-					let productName = 'Shoes';
-					console.log(productName);
-
-					const renameProduct = () => {
-						console.log(productName);
-					}
-					renameProduct();
-				}
-
-				addProduct();
-
-				//IIFE's (Immediately Invoked Function Expression)
-
-				//example 3
-
-				let app = (func =() => {
-					let name = 'Jesse';
-					console.log('Name...');
-					return {};
-
-				}) ();
-
-				console.log(app);
-
-
-				var now = new Date();
-				console.log(now);
-				
+		const startCar = (carId) => {
+			let message = 'Starting...';
+			console.log(message);
+		}
+		startCar();
 
 
 
-				//example 4
+		//example 2
 
-				let app1 = (function(){
-					const cow = 'Fresian';
-					console.log('Fresian');
-					return{cow};
-				}
-				) ();
+		const addProduct = (productId) => {
+			let productName = 'Shoes';
+			console.log(productName);
 
-				console.log(app1);
+			const renameProduct = () => {
+				console.log(productName);
+			}
+			renameProduct();
+		}
 
-				//Closure (Used when you want to keep using variables and methods in a function even when they're out of scope)
+		addProduct();
 
-				//example 5
+		//IIFE's (Immediately Invoked Function Expression)
 
-				let app2 = (function () {
-						let prodctId = 2321;
-						let getId = function(){
-							return prodctId;
-						};
-						return {
-							getId: getId
-						};
-					})();
+		//example 3
 
-					console.log(app2.getId);
+		let app = (func = () => {
+			let name = 'Jesse';
+			console.log('Name...');
+			return {};
 
+		})();
 
-				//thiskeyword (NOrmally used in functions that are properties of objects)
-				//_____________
+		console.log(app);
 
 
-				let object = {
-					prodctId: 123,
-					getId: function(){
-						//console.log(this );
-						return this.carId;
-					}
-				};
-
-				console.log(object.getId() );
-
-
-				//CALL AND APPLY
-				//_____________
-
-
-				//example 6
-
-				/*In the example below, we use the call function
-				Which allows us to overwrite the rights of the this keyword and allows
-				us to access the function within another object*/
-
-				let ob = {
-					carId: 123,
-					getId: function(){
-						return this.carId;
-					}
-				};
-
-				let newCar = {carId: 321}; //the new object
-
-				console.log(ob.getId.call(newCar));	//this.carId is now = 321	
-
-				//example 7
-
-				/*In the example below, we use APPLY... this is similar to call but allows us to pass new parameters to the function*/		
-				let saloon = {
-					carId: 123,
-					getId: function(prefix){
-						return prefix + this.carId ;
-					}
-				};
-
-				let truck = {carId: 456};
-
-				console.log(saloon.getId.apply(truck, ['ID: '])); //truck became the new context for getId
+		var now = new Date();
+		console.log(now);
 
 
 
-				//BIND (Used to make a copy of an existing function and still change the value of this keyword) 
-				//_____
+
+		//example 4
+
+		let app1 = (function () {
+			const cow = 'Fresian';
+			console.log('Fresian');
+			return { cow };
+		}
+		)();
+
+		console.log(app1);
+
+		//Closure (Used when you want to keep using variables and methods in a function even when they're out of scope)
+
+		//example 5
+
+		let app2 = (function () {
+			let prodctId = 2321;
+			let getId = function () {
+				return prodctId;
+			};
+			return {
+				getId: getId
+			};
+		})();
+
+		console.log(app2.getId);
 
 
-				//example 8
-
-				let mpv = {
-					carId: 123,
-					getId: function(){
-						return this.carId;
-					}
-
-				};
-
-				let tricycle = {carId: 789};
-
-				newFunc = mpv.getId.bind(tricycle);
-
-				console.log(newFunc());
+		//thiskeyword (NOrmally used in functions that are properties of objects)
+		//_____________
 
 
+		let object = {
+			prodctId: 123,
+			getId: function () {
+				//console.log(this );
+				return this.carId;
+			}
+		};
 
-				//ARROW FUNCTIONS
-				//_______________
-
-				let arrowFunc = (fname, lname) => {
-					const fullname = fname + 'Daniel' + lname;
-					return fullname;
-				}
-				console.log(arrowFunc('Abraham ', ' Agwa'));
-
-
-				//	DEFAULT PARAMETERS
-				//___________________
-
-				let trackCar = (vecId, city='Kampala') => {
-					console.log(`Tracking ${vecId} in ${city}`);
-				};
-
-				console.log(trackCar(123));
-				console.log(trackCar(456, 'Katakwi'));
+		console.log(object.getId());
 
 
-		</script>
-	</body>
+		//CALL AND APPLY
+		//_____________
+
+
+		//example 6
+
+		/*In the example below, we use the call function
+		Which allows us to overwrite the rights of the this keyword and allows
+		us to access the function within another object*/
+
+		let ob = {
+			carId: 123,
+			getId: function () {
+				return this.carId;
+			}
+		};
+
+		let newCar = { carId: 321 }; //the new object
+
+		console.log(ob.getId.call(newCar));	//this.carId is now = 321	
+
+		//example 7
+
+		/*In the example below, we use APPLY... this is similar to call but allows us to pass new parameters to the function*/
+		let saloon = {
+			carId: 123,
+			getId: function (prefix) {
+				return prefix + this.carId;
+			}
+		};
+
+		let truck = { carId: 456 };
+
+		console.log(saloon.getId.apply(truck, ['ID: '])); //truck became the new context for getId
+
+
+
+		//BIND (Used to make a copy of an existing function and still change the value of this keyword) 
+		//_____
+
+
+		//example 8
+
+		let mpv = {
+			carId: 123,
+			getId: function () {
+				return this.carId;
+			}
+
+		};
+
+		let tricycle = { carId: 789 };
+
+		newFunc = mpv.getId.bind(tricycle);
+
+		console.log(newFunc());
+
+
+
+		//ARROW FUNCTIONS
+		//_______________
+
+		let arrowFunc = (fname, lname) => {
+			const fullname = fname + 'Daniel' + lname;
+			return fullname;
+		}
+		console.log(arrowFunc('Abraham ', ' Agwa'));
+
+
+		//	DEFAULT PARAMETERS
+		//___________________
+
+		let trackCar = (vecId, city = 'Kampala') => {
+			console.log(`Tracking ${vecId} in ${city}`);
+		};
+
+		console.log(trackCar(123));
+		console.log(trackCar(456, 'Katakwi'));
+
+		console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+
+		/* ------PROMISES--------- */
+		async function myFunc() {
+			return 'Agwa';
+		}
+		myFunc()
+			.then(() => { console.log('success :-)') }, () => { console.log('error') })
+	</script>
+</body>
+
 </html>
