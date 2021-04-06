@@ -121,19 +121,30 @@ console.log(iphones.type);
 let car = new Car(123);
 console.log(car.id); */
 
-/* ----------Functional Class Constructor--------*/
 
-function VolksWagen(subCompany, origin, acquiredDate) {
-    this.subCompany = subCompany;
-    this.origin = origin;
-    this.acquiredDate = new Date(acquiredDate);
-    this.yearAcquired = function () {
+/* -----------------Classes in ES6------------------------ */
+
+class VolksWagen {
+    constructor(subCompany, origin, acquiredDate) {
+        this.subCompany = subCompany;
+        this.origin = origin;
+        this.acquiredDate = new Date(acquiredDate);
+    }
+
+    yearAcquired() {
         return this.acquiredDate.getFullYear();
+    }
+
+    getCompanyNameOrigin() {
+        return `${this.subCompany} from ${this.origin}`
     }
 }
 
 /* Instantiating an object */
 car1 = new VolksWagen('Lamborghini', 'Italy', '5-3-1999');
 car2 = new VolksWagen('Audi', 'Germany', '3-4-2000');
+car3 = new VolksWagen('Bentley', 'Britain', '3-4-1980');
 console.log(car1, car2.origin);
 console.log(car1.yearAcquired());
+console.log(car3.getCompanyNameOrigin());
+console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
