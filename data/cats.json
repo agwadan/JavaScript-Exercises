@@ -1,0 +1,39 @@
+{
+  "cats": [
+      {
+          "id": 1,
+          "name": "Fluffy",
+          "breed": "Maine Coon",
+          "age": 3,
+          "color": "Brown"
+      },
+      {
+          "id": 2,
+          "name": "Whiskers",
+          "breed": "Siamese",
+          "age": 5,
+          "color": "White"
+      },
+      {
+          "id": 3,
+          "name": "Mittens",
+          "breed": "Persian",
+          "age": 2,
+          "color": "Gray"
+      },
+      {
+          "id": 4,
+          "name": "Shadow",
+          "breed": "Russian Blue",
+          "age": 4,
+          "color": "Blue"
+      },
+      {
+          "id": 5,
+          "name": "Bella",
+          "breed": "Ragdoll",
+          "age": 6,
+          "color": "White"
+      }
+  ]
+}
