@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Hashtag Generator</title>
+  </head>
+  <body>
+    <h1>The Hashtag Generator</h1>
+    <script>
+      function HG(sentence) {
+        let arr1 = sentence.split(" ");
+        console.log(arr1);
+
+        let arr2 = ["#"];
+        for (x = 0; x < arr1.length; x++) {
+          let word = arr1[x];
+          arr2.push(word.charAt(0).toUpperCase() + word.slice(1));
+        }
+        return arr2.join();
+      }
+
+      HG("Our speaker must resign");
+    </script>
+  </body>
+</html>

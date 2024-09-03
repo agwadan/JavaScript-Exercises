@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Asynchronous Functions</h1>
-  <br>
-  <img id="cat-image" src="" alt="Cat Image">
-  <img id="cat-image-2" src="" alt="Cat Image Two">
-  <script>
-    console.log("Hello World");
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Asynchronous Functions</h1>
+    <br />
+    <img id="cat-image" src="" alt="Cat Image" />
+    <img id="cat-image-2" src="" alt="Cat Image Two" />
+    <script>
+      const walkDog = () => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            let completed = true;
+            if (completed) resolve("Dog walked 🐕");
+            else reject("You didn't walk the dog :( ");
+          }, 1500);
+        });
+      };
 
-    new Promise((resolve, reject)=> {
-      setTimeout(() => {
-        resolve(10);
-      }, 3000);
-    })
-    .then(num => {console.log(num); return num + 2;})
-    .then(num => {console.log(num); return num + 2;})
-    .then(num => console.log(num))
+      const cleanKitchen = () => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            let completed = true;
+            if (completed) resolve("Kitchen Cleaned 🧹");
+            else reject("You didn't clean the kitchen :( ");
+          }, 2600);
+        });
+      };
 
-    const cats = fetch('../data/cats.json')
-    .then(res => res.json())
-    .then(data => {
-      data.cats.forEach(cat => {
-        getCatName(cat);
-      });
-    })
+      const takeOutTrash = () => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            let completed = false;
+            if (completed) resolve("Trash Taken out 🗑️");
+            else reject("You didn't take out the trash :( ");
+          }, 3000);
+        });
+      };
 
-    const getCatName=(data)=>{
-      console.log(data.name);
-    }
-
-    
-    const catImage = document.querySelector('img#cat-image');
-    const catImage2 = document.querySelector('img#cat-image-2');
-
-    fetch('https://api.giphy.com/v1/gifs/translate?api_key=0cvagHFFWB3Iwao4Xz4m3VWvThsNlNK8&s=cats', {mode: "cors"})
-    .then(res => res.json())
-    .then(src => {
-      imageSource = src.data.images.original.url;
-      catImage.src = imageSource;
-    });
-
-    //Same Thing with Async await
-    const showCatImage = async()=>{
-      const res = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=0cvagHFFWB3Iwao4Xz4m3VWvThsNlNK8&s=cats', {mode: "cors"});
-      const data = await res.json();
-      catImage2.src = data.data.images.original.url;
-    }
-
-    showCatImage();
-
-</script>
-</body>
+      walkDog()
+        .then((value) => {
+          console.log(value);
+          return cleanKitchen();
+        })
+        .then((value) => {
+          console.log(value);
+          return takeOutTrash();
+        })
+        .then((value) => {
+          console.log(value);
+          console.log("Chores complete");
+        })
+        .catch((err) => console.log(err));
+    </script>
+  </body>
 </html>

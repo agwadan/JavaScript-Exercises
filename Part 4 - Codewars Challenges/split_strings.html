@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Split Strings</title>
+  </head>
+  <body>
+    <h1>Split Strings</h1>
+    <script>
+      function splitString(word) {
+        arr1 = word.split("");
+        console.log(arr1);
+        let arr2 = [];
+        for (let x = 0; x < arr1.length; x = x + 2) {
+          arr2.push(arr1[x] + (arr1[x + 1] ? arr1[x + 1] : "_"));
+          console.log(arr2);
+        }
+        console.log(arr2);
+      }
+
+      splitString("abcdefg");
+    </script>
+  </body>
+</html>
